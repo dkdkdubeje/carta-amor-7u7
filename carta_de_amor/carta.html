@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+
+ <div id="cartaContainer">
+    <article class="card">
+        <header class="header">
+            <div class="circle-container">
+                <div class="circle">
+                    <div class="label">Tú</div>
+<img src="https://i.pinimg.com/750x/e8/17/b9/e817b912513a55050a06246d40e711ad.jpg" alt="Tú" />
+                </div>
+                <div class="circle">
+                    <div class="label">Yo</div>
+<img src="https://freepngimg.com/thumb/toy_story/23058-7-toy-story-woody-image.png" alt="Yo" />
+                </div>
+            </div>
+
+            <h1>Para Mi Nena Preciosa</h1>
+            <div class="subtitle"><span id="nombre"></span> </div>
+        </header>
+
+        <section class="content">
+            <p>
+Cada día a tu lado es un regalo que atesoro profundamente. 
+Tu sonrisa ilumina mis días, tu voz le da sentido a mis días, 
+y tu amor me hace querer ser mejor persona siempre. 
+Gracias por ser mi compañera, mi alegría y mi inspiración. 
+Prometo seguir construyendo recuerdos juntos, resolviendo todos nuestros problemas, enamorarme cada día de ti pero sobre todo 
+cuidando siempre este amor que compartimos y haciendo que cada momento a tu lado sea eterno.
+</p>
+
+<p>
+Y por cierto, por si te lo preguntabas… 
+este es exactamente el tiempo que llevamos juntos, 
+y cada segundo ha valido la pena gracias a ti.
+</p>
+
+
+
+        </section>
+
+        <div class="stats" id="stats">
+    <div class="stat">
+        <div class="num" id="24">24</div>
+        <div class="lbl">Meses de risas y sueños compartidos</div>
+    </div>
+    <div class="stat">
+        <div class="num" id="days">731</div>
+        <div class="lbl">Días de aventuras</div>
+    </div>
+    <div class="stat">
+        <div class="num" id="hours">17544</div>
+        <div class="lbl">Horas pensando en ti</div>
+    </div>
+    <div class="stat">
+        <div class="num" id="minutes">1052640</div>
+        <div class="lbl">Minutos que se sienten eternos contigo</div>
+    </div>
+</div>
+
+
+        <footer class="footer">
+          
+    <button class="btn" id="btnPlay">Presióname para una bonita sorpresa</button>
+</footer>
+
+<style>
+    body {
+        position: relative;
+        overflow-x: hidden;
+    }
+    .fall {
+        position: fixed;
+        top: -50px;
+        font-size: 2rem;
+        animation: fall 4s linear forwards;
+        z-index: 9999;
+        pointer-events: none;
+    }
+    @keyframes fall {
+        to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+
+<script>
+document.getElementById("btnPlay").addEventListener("click", function() {
+    for (let i = 0; i < 20; i++) { // cantidad de corazones y flores
+        setTimeout(() => {
+            let elem = document.createElement("div");
+            elem.classList.add("fall");
+
+            // alternar entre corazones y flores
+            elem.innerText = Math.random() > 0.5 ? "💖" : "🌸";
+
+            // posición aleatoria
+            elem.style.left = Math.random() * 100 + "vw";
+            elem.style.fontSize = (Math.random() * 20 + 20) + "px";
+            document.body.appendChild(elem);
+
+            // eliminar cuando termine la animación
+            setTimeout(() => {
+                elem.remove();
+            }, 4000);
+        }, i * 200); // van cayendo de a poquito
+    }
+});
+</script>
+<button id="btnAudio">🎵 Reprodúceme</button>
+<audio id="miAudio" src="audio/hopeful-love-romantic-music-338664.mp3"></audio>
+
+<script>
+document.getElementById("btnAudio").addEventListener("click", function() {
+    let audio = document.getElementById("miAudio");
+    audio.play();
+});
+</script>
+
+
+
+        </footer>
+    </article>
+
+</div>
+
+  <script src="script2.js"></script>
+</body>
+</html>
